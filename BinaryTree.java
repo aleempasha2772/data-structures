@@ -72,6 +72,26 @@ public class BinaryTree {
         }
     }
 
+    public int TreeHeight(TreeNode root){
+        if(root == null){
+            System.out.println("no tree");
+            return -1;
+        }
+        else{
+            int leftHeight = 0;
+            int rightHeight = 0;
+            if(root.left != null){
+                leftHeight = TreeHeight(root.left);
+            }
+            if (root.right != null){
+                rightHeight = TreeHeight(root.right);
+            }
+
+            int max = (leftHeight > rightHeight) ? leftHeight:rightHeight;
+            return (max+1);
+        }
+    }
+
 
 
 
@@ -91,6 +111,9 @@ public class BinaryTree {
         System.out.println();
         System.out.println("Post-Order Traverse");
         bt.LevelOrder(bt.root);
+        System.out.println();
+        System.out.println("Height of the Tree");
+        System.out.println(bt.TreeHeight(bt.root));
     }
 
 }
