@@ -1,8 +1,15 @@
 import java.util.LinkedList;
 import java.util.Queue;
+/*
+Do you have exp on multi threading, data structure, HashMap
+Do you have exp in arrays, abstract, interface?
+concurrencies and threads ?
+How strong in SQL?
+
+51246
+ */
 
 public class BinaryTree {
-    
     private TreeNode root;
     private class TreeNode{
         private int data;
@@ -87,12 +94,24 @@ public class BinaryTree {
                 rightHeight = TreeHeight(root.right);
             }
 
-            int max = (leftHeight > rightHeight) ? leftHeight:rightHeight;
-            return (max+1);
+            int max = Math.max(leftHeight, rightHeight);
+            if (max == 1){
+                return 0;
+            }else{
+                return max + 1;
+            }
+
+
         }
     }
 
-
+    public void rightView(TreeNode root){
+        if (root == null){
+            return;
+        }
+        System.out.print(root.data+ " ");
+        rightView(root.right);
+    }
 
 
 
@@ -114,6 +133,10 @@ public class BinaryTree {
         System.out.println();
         System.out.println("Height of the Tree");
         System.out.println(bt.TreeHeight(bt.root));
+        System.out.println();
+        System.out.println("Right view");
+        bt.rightView(bt.root);
+
     }
 
 }
